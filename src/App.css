@@ -10,6 +10,15 @@
   margin-top: 10px;
 }
 
+
+.emphasized {
+  font-style: italic;
+}
+
+.important {
+  font-weight: bold;
+}
+
 .header {
   border-bottom: 2px solid darkgray;
 }
