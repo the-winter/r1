@@ -4,7 +4,7 @@ export const PullQuote = props => {
     return (
         <aside className="pull-quote">
             <blockquote>
-                {props.text}
+                "{props.text}"
             </blockquote>
             <hr />
             <p>{props.attribution}</p>

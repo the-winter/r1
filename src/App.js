@@ -6,12 +6,6 @@ import { BrowserRouter as Router, NavLink } from 'react-router-dom'
 import Route from 'react-router-dom/Route'
 
 class App extends Component {
-  state = {
-    textChoice: 'description',
-    color: 'black',
-    buttonLabel: 'ADD TO CART',
-  };
-
   render() {
     return (
       <Router>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Text } from './text'
 import { Image } from './image'
 import { PullQuote } from './pullquote'
 import testData from '../data/test2-data.json'
@@ -9,7 +8,6 @@ import moment from 'moment'
 class TestTwo extends Component {
 
     render() {
-
         // Filter function for an object
         Object.filter = (obj, predicate) =>
             Object.keys(obj)
@@ -37,9 +35,9 @@ class TestTwo extends Component {
                         if (item.intentions.length > 0) {
                             // object with index and length as property e.g. emphasised: [3, 7]
                             const intentions = item.intentions.reduce((o, item) => ({ ...o, [item.kind]: [item.index, item.length] }), {})
+                            let counter = 0;
                             // each individual character in the text
                             for (let i = 0; i < item.text.length; i++) {
-
                                 var char = item.text[i]
                                 // check if i is within the range for any intention
                                 var relevantIntentions = Object.filter(intentions, (value) => {
@@ -51,15 +49,15 @@ class TestTwo extends Component {
                                 // get the intention name as a string
                                 var styles = Object.keys(relevantIntentions).join(" ")
                                 // put the intention name as a style on the span element
-                                intentionsString += `<span class="${styles}">${char}</span>`
+                                intentionsString += `<span key=${counter} class="${styles}">${char}</span>`
+                                counter = counter + 1;
                             }
                         } else {
                             // if no intentions return only text
-                            return item.text
-                        }
-                        return ReactHtmlParser(intentionsString)
 
-                        // return <Text text={item.text} intentions={item.intentions} key={index} />
+                            return <div key={index} className="content-section"><p className="article-text">{item.text}</p></div>
+                        }
+                        return <div key={index} className="content-section"><p className="article-text">{ReactHtmlParser(intentionsString)}</p></div>
 
                     } else if (item.kind === "image") {
                         return <Image captionText={item.captionText} url={item.url} key={index} />

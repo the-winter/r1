@@ -10,6 +10,10 @@
   margin-top: 10px;
 }
 
+.center {
+  text-align: center;
+}
+
 
 .emphasized {
   font-style: italic;
@@ -52,7 +56,10 @@ li a:hover:not(.active) {
 }
 
 .page-container {
-  padding: 0px 150px 50px 150px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 750px;
+  padding-bottom: 50px;
 }
 
 .pull-quote {
