@@ -33,7 +33,6 @@ class TestOne extends Component {
                 counter = counter + 1;
             }
         }
-        console.log(intentionsString)
         return (
             <div className="content-section center">
                 <p className="article-text">
